@@ -1,3 +1,4 @@
+import { URLSearchParams } from "url";
 
 const apiKey = process.env.API_KEY;
 
@@ -13,7 +14,7 @@ export const searchRecipes = async (searchTerm:string, page:number) =>{
         apiKey,
         query: searchTerm,
         number: "10",
-        offset: (page * 10).toString
+        // offset: (page * 10).toString
         
     };
 
