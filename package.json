@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npx nodemon ./src/index.ts"
   },
-  "author": "Mackenzie Lamour",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "@prisma/client": "^5.5.2",
