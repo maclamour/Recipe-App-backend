@@ -1,6 +1,10 @@
 const API_KEY = process.env.API_KEY;
 
-import { URLSearchParams } from "url";
+import { URL, URLSearchParams } from "url";
+
+
+
+
 
 
 
@@ -9,14 +13,14 @@ export const searchRecipes = async (searchTerm:string, page:number) =>{
         throw new Error('API key not found');
     }
 
-    // const baseURL = 'https://api.spoonacular.com/recipes/complexSearch';
-    const url = new URL("https://api.spoonacular.com/recipes/complexSearch");
+    const baseURL = 'https://api.spoonacular.com/recipes/complexSearch';
+    const url = new URL(baseURL);
 
     const queryParams = {
         apiKey: API_KEY,
         query: searchTerm,
         number: "10",
-        offset: (page * 10).toString
+        offset: ((page - 1) * 10).toString()
         
     };
 
