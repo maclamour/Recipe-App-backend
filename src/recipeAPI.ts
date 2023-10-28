@@ -48,7 +48,7 @@ export const getRecipeSummary =async (recipeId:string) => {
     return json;    
 };
 
-export const getFavoriteRecipeByIds =async (ids:string[]) => {
+export const getFavoriteRecipesByIds =async (ids:string[]) => {
     if(!API_KEY){
         throw new Error('API key not found'); 
     }
