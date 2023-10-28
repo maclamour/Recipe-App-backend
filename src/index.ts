@@ -47,8 +47,9 @@ app.get('/api/recipes/favorite', async (req, res) =>{
     try {
         const favoriteRecipes = await prismaClient.favoriteRecipe.findMany();
         const recipeIds = favoriteRecipes.map((recipe) => 
-        recipe.recipeId.toString)
-        const favorites = await getFavoriteRecipesByIds(recipeIds);
+        recipe.recipeId.toString());
+        
+        const favorites = await recipeAPI.getFavoriteRecipesByIds(recipeIds);
         res.json(favorites);
     } catch (error) {
         console.log(error);
