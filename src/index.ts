@@ -42,7 +42,7 @@ app.post('/api/recipes/favorite', async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Something went wrong.' })    
-    }
+    };
 });
 
 app.get('/api/recipes/favorite', async (req, res) =>{
@@ -56,8 +56,24 @@ app.get('/api/recipes/favorite', async (req, res) =>{
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: 'Something went wrong.'});
-    }
+    };
 });
+
+app.delete('/api/recipes/favorite',async (req,res) => {    
+    const recipeId = req.body.recipeId;
+    
+    try {
+        await prismaClient.favoriteRecipe.delete({
+            where:{
+                recipeId: recipeId
+            } 
+        });
+        return res.status(204).send()
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Something went wrong.'});    
+    };
+})
 
 
 app.listen(5500, () => {
