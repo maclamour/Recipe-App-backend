@@ -31,10 +31,12 @@ app.get('/api/recipes/:recipeId/summary',async (req, res ) => {
 });
 
 app.post('/api/recipes/favorite', async (req, res) => {
-    const { recipeId } = req.body;
+    const recipeId  = req.body.recipeId;
     try {
         const favoriteRecipe = await prismaClient.favoriteRecipe.create({
-            data: { recipeId },
+            data: { 
+                recipeId: recipeId 
+            },
         });
         res.status(201).json(favoriteRecipe);    
     } catch (error) {
@@ -48,7 +50,7 @@ app.get('/api/recipes/favorite', async (req, res) =>{
         const favoriteRecipes = await prismaClient.favoriteRecipe.findMany();
         const recipeIds = favoriteRecipes.map((recipe) => 
         recipe.recipeId.toString());
-        
+
         const favorites = await recipeAPI.getFavoriteRecipesByIds(recipeIds);
         res.json(favorites);
     } catch (error) {
