@@ -10,6 +10,8 @@ import {PrismaClient } from "@prisma/client"
 
 const app = express();
 
+const PORT: string | number = process.env.PORT || 3000;
+
 const prismaClient = new PrismaClient();
 
 app.use(express.json());
@@ -76,6 +78,6 @@ app.delete('/api/recipes/favorite',async (req,res) => {
 })
 
 
-app.listen(5500, () => {
-    console.log('Server running on localhost: 5500 ✅ ');
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}` );
 });
