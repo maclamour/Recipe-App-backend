@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
+
 const API_KEY = process.env.API_KEY;
 
 export const searchRecipes = async (searchTerm: string, page: number) => {
