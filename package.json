@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node ./src/index.ts",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prisma:generate": "prisma generate"
   },
   "author": "",
   "license": "MIT",
@@ -22,6 +23,7 @@
     "@types/express": "^4.17.20",
     "@types/node": "^20.8.9",
     "nodemon": "^3.0.1",
+    "prisma": "^5.5.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
